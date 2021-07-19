@@ -1,0 +1,58 @@
+{% extends "layout.html" %} {% set pageId = "page-create-customer" %} {% block
+title %}
+<title>Adicionar um cliente</title>
+{% endblock title %} {% block styles %}
+<link rel="stylesheet" href="styles/create-customer.css" />
+<link rel="stylesheet" href="styles/modal.css" />
+{% endblock styles %} {% block content %}
+
+<form action="/savepoint" method="POST">
+  <h1>Cadastro de cliente</h1>
+  <fieldset>
+    <legend>
+      <h2>Dados do cliente</h2>
+    </legend>
+
+    <div class="field">
+      <label for="name">Nome</label>
+      <input type="text" maxlength="150" name="name" required="required" />
+
+      <label for="cpf">CPF</label>
+      <input
+        id="num"
+        type="number"
+        name="cpf"
+        onkeypress="return somenteNumeros(event)"
+        required="required"
+      />
+    </div>
+
+    <div class="field-group">
+      <div class="field">
+        <label for="address">Data de Nascimento</label>
+        <input type="date" name="birth" required="required" />
+      </div>
+      <!-- <div class="field">
+        <label for="address2">Data de cadastro</label>
+        <input type="date" disabled name="dateRegister" />
+      </div> -->
+    </div>
+
+    <div class="field">
+      <label for="name">Renda Familiar</label>
+      <input
+        type="number"
+        step="0.01"
+        min="0"
+        name="salary"
+        required="required"
+      />
+    </div>
+  </fieldset>
+  <button type="submit">Cadastrar cliente</button>
+</form>
+
+{% endblock content %} {%block modal %} {% if saved %} {%include
+"partials/add-customer.html"%} {% endif %} {%endblock modal%} {%block scripts%}
+<script src="scripts/add-customer.js"></script>
+{%endblock scripts%}

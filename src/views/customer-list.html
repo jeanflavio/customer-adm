@@ -1,0 +1,35 @@
+{% extends "layout.html" %} {% set pageId = "page-customer-list" %} {% block
+title %}
+<title>Adicionar um cliente</title>
+{% endblock title %} {% block styles %}
+<link rel="stylesheet" href="styles/customer-list.css" />
+<link rel="stylesheet" href="styles/modal.css" />
+{% endblock styles %} {% block content %}
+
+<article>
+  <h1>Lista de clientes</h1>
+  <table class="styled-table">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Renda</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for customer in customers %}
+      <tr>
+        <td>{{ customer.name }}</td>
+        <td>
+          <p>R$ <span id="salary">{{ customer.salary }}</span></p>
+        </td>
+      </tr>
+
+      {% endfor %}
+    </tbody>
+  </table>
+</article>
+
+{% endblock content %} {%block modal %} {% if saved %} {%include
+"partials/add-customer.html"%} {% endif %} {%endblock modal%} {%block scripts%}
+<script src="scripts/customer-list.js"></script>
+{%endblock scripts%}

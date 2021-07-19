@@ -1,0 +1,25 @@
+{% extends "layout.html" %} {% set pageId = "page-home" %} {% block styles %}
+<link rel="stylesheet" href="styles/home.css" />
+<link rel="stylesheet" href="styles/modal.css" />
+{% endblock styles %} {% block content %}
+<div class="content">
+  <header>
+    <img src="/assets/logo.svg" alt="Logomarca" />
+    <a href="/create-customer">
+      <span></span>
+      Cadastre um cliente</a
+    >
+  </header>
+
+  <main>
+    <h1>Painel de cadastro de clientes</h1>
+
+    <p>O melhor painel de administração de clientes 4ever.</p>
+
+    <div class="buttons-home">
+      <a href="/customer-list">Clientes cadastrados</a>
+      <a href="#">Relatórios</a>
+    </div>
+  </main>
+</div>
+{% endblock content %}
